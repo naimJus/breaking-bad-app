@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.thebreakingbadapp.ui.detail.DetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:title="@{viewModel.characterLiveData.name}" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ImageView
+                android:id="@+id/ivBackground"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:alpha="0.5"
+                android:contentDescription="@string/empty"
+                android:scaleType="fitXY"
+                app:backgroundImageUrl="@{viewModel.characterLiveData.img}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbar" />
+
+            <ImageView
+                android:id="@+id/ivCharacterPoster"
+                android:layout_width="@dimen/poster_image"
+                android:layout_height="@dimen/poster_image"
+                android:layout_margin="@dimen/spacing_larger"
+                android:contentDescription="@string/empty"
+                android:transitionName="@{viewModel.characterLiveData.name}"
+                app:drawableUrl="@{viewModel.characterLiveData.img}"
+                app:layout_constraintEnd_toEndOf="@id/ivBackground"
+                app:layout_constraintStart_toStartOf="@id/ivBackground"
+                app:layout_constraintTop_toTopOf="@id/ivBackground" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/AdapterItemText.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/name_placeholder, viewModel.characterLiveData.name)}"
+                app:layout_constraintTop_toBottomOf="@+id/ivBackground"
+                tools:text="@string/name_placeholder" />
+
+            <TextView
+                android:id="@+id/tvId"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/id_placeholder, viewModel.characterLiveData.charId)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="@string/id_placeholder" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/status_placeholder, viewModel.characterLiveData.status)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvId"
+                tools:text="@string/status_placeholder" />
+
+            <TextView
+                android:id="@+id/tvNickname"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/nickname_placeholder, viewModel.characterLiveData.nickname)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+                tools:text="@string/nickname_placeholder" />
+
+            <TextView
+                android:id="@+id/tvBirthday"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/birthday_placeholder, viewModel.characterLiveData.birthday)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvNickname"
+                tools:text="@string/birthday_placeholder" />
+
+            <TextView
+                android:id="@+id/tvOccupation"
+                style="@style/AdapterItemText.Subtitle"
+                setFormat="@{@string/occupation_placeholder}"
+                setListText="@{viewModel.characterLiveData.occupation}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvBirthday"
+                tools:text="@string/occupation_placeholder" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/category_placeholder, viewModel.characterLiveData.category)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvOccupation"
+                tools:text="@string/category_placeholder" />
+
+            <TextView
+                android:id="@+id/tvPortrayed"
+                style="@style/AdapterItemText.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/portrayed_placeholder, viewModel.characterLiveData.portrayed)}"
+                app:layout_constraintTop_toBottomOf="@+id/tvCategory"
+                tools:text="@string/portrayed_placeholder" />
+
+            <TextView
+                android:id="@+id/tvAppearance"
+                style="@style/AdapterItemText.Subtitle"
+                setFormat="@{@string/appearance_placeholder}"
+                setListText="@{viewModel.characterLiveData.appearance}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvPortrayed"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvBetterCallSaulAppearance"
+                style="@style/AdapterItemText.Subtitle"
+                setFormat="@{@string/betterCallSaulAppearance_placeholder}"
+                setListText="@{viewModel.characterLiveData.betterCallSaulAppearance}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvAppearance"
+                tools:text="@string/betterCallSaulAppearance_placeholder" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

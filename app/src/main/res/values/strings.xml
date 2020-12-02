@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">The Breaking Bad App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="ok">OK</string>
+    <string name="empty" />
+    <string name="name_placeholder">Name: %s</string>
+    <string name="id_placeholder">Id: %d</string>
+    <string name="status_placeholder">Status: %s</string>
+    <string name="nickname_placeholder">Nickname: %s</string>
+    <string name="occupation_placeholder">Occupation: %s</string>
+    <string name="birthday_placeholder">Birthday: %s</string>
+    <string name="category_placeholder">Category: %s</string>
+    <string name="portrayed_placeholder">Portrayed: %s</string>
+    <string name="appearance_placeholder">Appearance: %s</string>
+    <string name="betterCallSaulAppearance_placeholder">Better call Saul appearance: %s</string>
+</resources>

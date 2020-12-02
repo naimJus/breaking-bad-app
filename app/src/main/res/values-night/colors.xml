@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // night theme palette
+    <color name="primaryColor">#424242</color>
+    <color name="primaryLightColor">#6d6d6d</color>
+    <color name="primaryDarkColor">#1b1b1b</color>
+    <color name="secondaryColor">#26a69a</color>
+    <color name="secondaryLightColor">#64d8cb</color>
+    <color name="secondaryDarkColor">#00766c</color>
+
+    <color name="primaryTextColor">@color/white</color>
+    <color name="secondaryTextColor">@color/secondaryColor</color>
+    <color name="item_background">@color/black</color>
+</resources>

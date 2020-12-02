@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_list_fragment">
+
+
+    <fragment
+        android:id="@+id/navigation_list_fragment"
+        android:name="com.example.thebreakingbadapp.ui.list.ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/to_detail_fragment"
+            app:destination="@id/navigation_detail_fragment" />
+        <action
+            android:id="@+id/to_info_dialog"
+            app:destination="@id/navigation_info_dialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail_fragment"
+        android:name="com.example.thebreakingbadapp.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/to_info_dialog"
+            app:destination="@id/navigation_info_dialog" />
+
+        <argument
+            android:name="arg_character"
+            app:argType="com.example.thebreakingbadapp.data.Character"
+            app:nullable="false" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/navigation_info_dialog"
+        android:name="com.example.thebreakingbadapp.ui.info.InfoFragment">
+        <argument
+            android:name="arg_title"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="arg_body"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="arg_button_confirmation"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="arg_pop_to"
+            android:defaultValue="@id/navigation_list_fragment"
+            app:argType="reference" />
+    </dialog>
+</navigation>

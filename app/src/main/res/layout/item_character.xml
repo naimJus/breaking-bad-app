@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="character"
+            type="com.example.thebreakingbadapp.data.Character" />
+
+        <variable
+            name="viewModel"
+            type="com.example.thebreakingbadapp.ui.list.ListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->viewModel.itemSelected(ivCharacter, character)}"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_normal">
+
+        <ImageView
+            android:id="@+id/ivCharacter"
+            android:layout_width="@dimen/character_thumb_size"
+            android:layout_height="@dimen/character_thumb_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/empty"
+            android:transitionName="@{character.name}"
+            app:drawableUrl="@{character.img}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/AdapterItemText.Title"
+                android:layout_marginTop="0dp"
+                android:text="@{character.name}" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                style="@style/AdapterItemText.Subtitle"
+                android:text="@{String.format(@string/status_placeholder, character.status)}" />
+
+            <TextView
+                android:id="@+id/tvNickname"
+                style="@style/AdapterItemText.Subtitle"
+                android:text="@{String.format(@string/nickname_placeholder, character.nickname)}" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
